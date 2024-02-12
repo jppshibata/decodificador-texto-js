@@ -4,31 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Encriptador de Texto</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/styles.css" />
   </head>
   <body>
     <main>
       <section class="conteudo">
         <div class="conteudo__texto">
-          <h1>Texto a ser Decodificado</h1>
-          <p>Aviso: O texto deve ser digitado em letras minusculas e sem acento</p>
-          <textarea name="textocripto" id="conteudo__textocripto" placeholder="Digite o Texto aqui" cols="50" rows="30"></textarea>
+          <h1 class="conteudo__texto__titulo">Texto a ser Decodificado</h1>
+          <p class="conteudo__texto__aviso">
+            Aviso: O texto deve ser digitado em letras minusculas e sem acento
+          </p>
+          <textarea
+            name="textocripto"
+            id="conteudo__textocripto"
+            placeholder="Digite o Texto aqui"
+            cols="50"
+            rows="30"
+          ></textarea>
           <div class="conteudo__botoes">
             <button class="conteudo__botao">Criptograr</button>
             <button class="conteudo__botao">Descriptografar</button>
           </div>
         </div>
         <div class="conteudo__resultado">
-            <h1>Texto Decodificado</h1>
-            <p class="conteudo__resultado__area">
-            Aqui será gerado o espaço de onde será mostrado a resposta
+          <h1 class="conteudo__resultado__titulo">Texto Decodificado</h1>
+          <div class="conteudo__resultado__area">
+            <img
+              class="conteudo__resultado__img"
+              src="https://c.tenor.com/C2qhcTXenZoAAAAC/tenor.gif"
+            />
+            <p class="conteudo__resultado__paragrafo">
             </p>
-            <img src="https://c.tenor.com/C2qhcTXenZoAAAAC/tenor.gif"/>
+          </div>
         </div>
       </section>
     </main>
     <footer>
-        <p>Desenvolvido por João Paulo Pagenotto Shibata</p>
+      <p>Desenvolvido por João Paulo Pagenotto Shibata</p>
     </footer>
   </body>
 </html>

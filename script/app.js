@@ -25,6 +25,7 @@ function criptografarTexto() {
     reiniciarTexto();
     texto = copiarTexto().toLowerCase();
     tamanhoTexto = copiarTamanho(texto);
+    textoNovo = '';
     for (i = 0; i < tamanhoTexto; i++) {
         if (texto[i] === 'a') {
             textoNovo += 'ai';

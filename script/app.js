@@ -15,8 +15,14 @@ function copiarTamanho(texto) {
     return tamanhoTexto;
 }
 
+function reiniciarTexto() {
+    campo = document.getElementById('resultado__paragrafo');
+    campo.value = '';
+}
+
 function criptografarTexto() {
     substituirImg();
+    reiniciarTexto();
     texto = copiarTexto().toLowerCase();
     tamanhoTexto = copiarTamanho(texto);
     for (i = 0; i < tamanhoTexto; i++) {
@@ -34,25 +40,47 @@ function criptografarTexto() {
             textoNovo += texto[i];
         }
     }
-    console.log(textoNovo);
     exibirTextoNaTelaResultado(textoNovo);
 };
 
 function descriptografarTexto() {
     substituirImg();
-    texto = copiarTexto();
-    tamanhoTexto = copiarTamanho(texto);
-    for (i = 0; i < tamanhoTexto; i++) {
+    reiniciarTexto();
+    texto = copiarTexto().toLowerCase();
+    textoNovo = texto;
+    if (texto.indexOf('ai') !== -1) {
+        textoNovo = textoNovo.replaceAll('ai', 'a');
     }
+    if (texto.indexOf('enter') !== -1) {
+        textoNovo = textoNovo.replaceAll('enter', 'e');
+    }
+    if (texto.indexOf('imes') !== -1) {
+        textoNovo = textoNovo.replaceAll('imes', 'i');
+    }
+    if (texto.indexOf('ober') !== -1) {
+        textoNovo = textoNovo.replaceAll('ober', 'o');
+    }
+    if (texto.indexOf('ufat') !== -1) {
+        textoNovo = textoNovo.replaceAll('ufat', 'u');
+    }
+    exibirTextoNaTelaResultado(textoNovo);
 };
 
 function exibirTextoNaTelaResultado(texto) {
     let campo = document.getElementById('resultado__paragrafo');
-    console.log(campo);
     campo.innerHTML = texto;
 }
 
-function copiarTextoResultado() {
-    let textoCopia = document.getElementsById('resultado__paragrafo').value;
-    return textoCopia;
-};
+let copiarResultadoBotao = document.getElementById('copiar__resultado');
+
+copiarResultadoBotao.addEventListener('click', () => {
+    let textoCopia = document.getElementById('resultado__paragrafo').innerText;
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(textoCopia).then(() => {
+            alert('Texto copiado com sucesso');
+        })
+    } else {
+        console.log('Navegador não é compatível');
+    }
+
+})
